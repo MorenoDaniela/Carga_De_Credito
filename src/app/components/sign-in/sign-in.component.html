@@ -1,0 +1,59 @@
+
+<div  style="background-color: #478C56;">
+  <ion-card  style="background-color: #478C56;">
+    <!-- <span class="text-center">Carga de crédito</span> -->
+    <div class="text-center">
+      <img  src="../../../assets/conversando.png" style="height: 5%;width: 100%;">
+    </div>
+    <div class="text-center"> <img style="background-color: #478C56;"src="../../../assets/icon.png" alt=""> </div>
+    <ion-button color="success" shape="round" expand="block" (click)="Sereneis()" >Usuario 1</ion-button>
+  <ion-button color="success" shape="round" expand="block" (click)="Irina()" >Usuario 2</ion-button>
+  <ion-button color="success" shape="round" expand="block" (click)="Denu()" >Usuario 3</ion-button>
+    <form [formGroup]="formulario" (ngSubmit)="Loguear()">
+      <ion-item>
+        <ion-label position="stacked">Correo electrónico</ion-label>
+        <ion-input type="text" class="formControl"  formControlName="Email" required></ion-input>
+      </ion-item>
+
+      <span style="color:rgb(142, 2, 2)" *ngIf="formulario.get('Email')?.hasError('required') && formulario.get('Email')?.touched">El Email es requerido.</span> 
+      <span style="color:rgb(142, 2, 2)" *ngIf="formulario.get('Email')?.hasError('pattern') && formulario.get('Email')?.touched">El Email debe tener x.</span>
+    
+      <ion-item >
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input type="password" class="formControl" formControlName="Password" required></ion-input>
+      </ion-item>
+      
+       <span style="color:rgb(142, 2, 2)" *ngIf="formulario.get('Password')?.hasError('required') && formulario.get('Password')?.touched">La contraseña es requerida.</span>  
+     
+      <!-- <ion-button size="small" color="warning" type="submit" shape="round" expand="block" [disabled]="formulario.invalid">Logueate</ion-button> -->
+      <ion-button type="submit" expand="block" [disabled]="formulario.invalid" style="--background: #86e19a;">
+        Ingresar
+        <!-- <ion-icon name="enter-outline" size="large" ></ion-icon> -->
+        <!-- <ion-icon name="send-outline" size="large"> Entrar </ion-icon> -->
+      </ion-button>
+      
+  </form>
+  <!-- <ion-fab vertical="top" horizontal="end">
+    <ion-fab-button (click)="Sereneis()" style="--background:#478C56;">
+      <ion-icon name="happy-outline"></ion-icon>
+      <ion-label></ion-label>
+    </ion-fab-button>
+    <ion-fab-button (click)="Irina()" style="--background:#478C56;">
+      <ion-icon name="happy-outline"></ion-icon>
+      <ion-label></ion-label>
+    </ion-fab-button>
+    <ion-fab-button (click)="Denu()" style="--background:#478C56;">
+      <ion-icon name="happy-outline"></ion-icon>
+     
+    </ion-fab-button>
+    
+  </ion-fab> -->
+
+
+  
+
+ 
+  
+  </ion-card>
+  
+</div>

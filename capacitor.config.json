@@ -1,6 +1,24 @@
 {
-	"appId": "io.ionic.starter",
+	"appId": "carga.app",
 	"appName": "Carga_De_Credito",
 	"webDir": "www",
-	"bundledWebRuntime": false
+	"bundledWebRuntime": false,
+	"backgroundColor": "#478C56",
+	"plugins": {
+		"SplashScreen": {
+		  "launchShowDuration": 0,
+		  "launchAutoHide": true,
+		  "backgroundColor": "#478C56",
+		  "androidSplashResourceName": "splash",
+		  "androidScaleType": "CENTER_CROP",
+		  "showSpinner": true,
+		  "androidSpinnerStyle": "large",
+		  "iosSpinnerStyle": "small",
+		  "spinnerColor": "#999999",
+		  "splashFullScreen": true,
+		  "splashImmersive": true,
+		  "layoutName": "launch_screen",
+		  "useDialog": true
+		}
+	  }
 }
