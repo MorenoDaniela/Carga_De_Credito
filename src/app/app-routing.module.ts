@@ -7,7 +7,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 import { SplashComponent } from './components/splash/splash.component';
-
+import { ScanerQrComponent } from './components/scaner-qr/scaner-qr.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
@@ -16,7 +16,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent},
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
-  {path: 'splash', component:SplashComponent}
+  {path: 'splash', component:SplashComponent},
+  {path:'scanner', component:ScanerQrComponent}
 ];
 
 @NgModule({

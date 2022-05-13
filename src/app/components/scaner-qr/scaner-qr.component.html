@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="text-center" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">CRÉDITO CARGADO: {{this.miCredito.cantidad}}</ion-title>
+   <ion-button expand="full" color="danger" (click)="Limpiar()" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Limpiar</ion-button>
+   <img src="../../../assets/fondoqr.png" style="height: 45%;width: 45%;">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content
+  [fullscreen]="true"
+  [style.--background]="scanActive?'#00000000':'#ffffff'"
+>
+  <ion-button expand="full" (click)="startScanner()" [hidden]="scanActive" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+    ESCANEAR CÓDIGO QR
+  </ion-button>
+  <ion-row class="scan-button" [hidden]="!scanActive">
+    <ion-col class="ion-no-padding">
+      <ion-button expand="full" (click)="stopScanner()" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">DEJAR DE ESCANEAR</ion-button>
+    </ion-col>
+  </ion-row>
+  <div class="scan-box" [hidden]="!scanActive"></div>
+</ion-content>

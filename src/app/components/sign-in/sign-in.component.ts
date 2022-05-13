@@ -38,7 +38,7 @@ export class SignInComponent implements OnInit {
   }
 
   Sereneis(){
-    this.formulario.controls['Email'].setValue('sereneidelys@gmail.com');
+    this.formulario.controls['Email'].setValue('admin@admin.com');
     this.formulario.controls['Password'].setValue('123456');
   }
   Irina (){
