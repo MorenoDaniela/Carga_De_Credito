@@ -1,3 +1,25 @@
 .item-background-color{
     --ion-item-background:#478C56;
 }
+
+.spin{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  ion-spinner {
+    width: 28px;
+    height: 28px;
+    stroke: rgb(20, 170, 35);
+    fill: rgb(186, 30, 155);
+  }
+
+  @font-face{
+    font-family: 'Press Start 2P';
+    src:url('../../../assets/PressStart2P-Regular.ttf')
+  }
+  
+  h5, ion-item, ion-label, span, ion-button, ion-input, ion-note, div{
+    font-family: 'Press Start 2P';
+  }

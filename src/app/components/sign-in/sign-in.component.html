@@ -26,7 +26,7 @@
        <span style="color:rgb(142, 2, 2)" *ngIf="formulario.get('Password')?.hasError('required') && formulario.get('Password')?.touched">La contraseña es requerida.</span>  
      
       <!-- <ion-button size="small" color="warning" type="submit" shape="round" expand="block" [disabled]="formulario.invalid">Logueate</ion-button> -->
-      <ion-button type="submit" expand="block" [disabled]="formulario.invalid" style="--background: #86e19a;">
+      <ion-button type="submit" size="large" expand="block" [disabled]="formulario.invalid" style="--background: #86e19a;">
         Ingresar
         <!-- <ion-icon name="enter-outline" size="large" ></ion-icon> -->
         <!-- <ion-icon name="send-outline" size="large"> Entrar </ion-icon> -->
@@ -55,5 +55,7 @@
  
   
   </ion-card>
-  
+  <div class="spin" *ngIf="spinner">
+    <ion-spinner name="crescent"></ion-spinner>
+</div>
 </div>

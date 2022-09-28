@@ -10,6 +10,18 @@
     transform: translate(-50%, -50%);
     width: 300px;
   }
+  .scan-box2 {
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 100vmax rgb(0, 0, 0, 0.5);
+    content: "";
+    display: block;
+    left: 50%;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+  }
   .scan-button {
     margin: 0px;
     position: absolute;
@@ -27,3 +39,42 @@
 //     // url("../../../assets/fondoqr.png");
 //     // background-color: transparent;
 //   }
+
+@font-face{
+  font-family: 'Press Start 2P';
+  src:url('../../../assets/PressStart2P-Regular.ttf')
+}
+
+h5, ion-item,ion-title, ion-label, span, ion-button, ion-input, ion-note, div{
+  font-family: 'Press Start 2P';
+}
+.fs{
+  font-size: 100px;
+}
+.fsc{
+  font-size: 20px;
+}
+
+.pos{
+    margin: 0px;
+    position: absolute;
+    bottom: 0px;
+    width: 100vw;
+    height: 50px;
+    z-index: 11;
+}
+.pos2{
+  margin: 0px;
+  position: absolute;
+  bottom: 50px;
+  width: 100vw;
+  height: 50px;
+  z-index: 10;
+}
+
+.alertCancel{
+  --background: red;
+    button.alertButton{
+      color: white;
+    }
+ }

@@ -8,6 +8,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators  } from '@angular/f
 })
 export class SignInComponent implements OnInit {
   formulario!: FormGroup;
+  spinner:boolean=false;
   constructor(public authService: AuthService,public fb: FormBuilder,) { }
 
   ngOnInit(): void {
@@ -31,10 +32,11 @@ export class SignInComponent implements OnInit {
   console.log(this.formulario.get);
    const Password = this.formulario.controls['Password'].value;
    const Email = this.formulario.controls['Email'].value;
-
-
+   this.spinner=true;
+   setTimeout(()=>{
     this.authService.SignIn(Email, Password);
-    // this.toastr.showExito("Se registro el administrador correctamente","Tus datos fueron enviados con exito.",2000);
+    this.spinner=false;
+  },2000)
   }
 
   Sereneis(){

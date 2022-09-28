@@ -1,15 +1,12 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title class="text-center" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">CRÉDITO CARGADO: {{this.miCredito.cantidad}}</ion-title>
    <ion-button expand="full" color="danger" (click)="Limpiar()" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Limpiar</ion-button>
-   <img src="../../../assets/fondoqr.png" style="height: 45%;width: 45%;">
+   <img src="../../../assets/fondoqr.png" >
   </ion-toolbar>
 </ion-header>
 
-<ion-content
-  [fullscreen]="true"
-  [style.--background]="scanActive?'#00000000':'#ffffff'"
->
+<ion-content  [style.--background]="scanActive?'#00000000':'#ffffff'">
   <ion-button expand="full" (click)="startScanner()" [hidden]="scanActive" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
     ESCANEAR CÓDIGO QR
   </ion-button>
@@ -19,4 +16,37 @@
     </ion-col>
   </ion-row>
   <div class="scan-box" [hidden]="!scanActive"></div>
-</ion-content>
+</ion-content> -->
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    
+   
+    <ion-title class="ion-text-center fs" >{{this.miCredito.cantidad}}</ion-title>
+    <br>
+    <ion-title class="ion-text-center fsc" >CRÉDITO</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+  <ion-content  [style.--background]="scanActive?'#00000000':'#ffffff'">
+  
+    
+    <ion-row class="scan-button" [hidden]="!scanActive">
+      <ion-col class="ion-no-padding">
+        <ion-button expand="full" (click)="stopScanner()" >DEJAR DE ESCANEAR</ion-button>
+      </ion-col>
+    </ion-row>
+    <div class="scan-box" [hidden]="!scanActive"></div>
+    <div class="ion-text-center scan-box2" [hidden]="scanActive" (click)="startScanner()">
+      <img src="../../../assets/qr2).png" >
+    </div>
+    <!-- <ion-button expand="full" (click)="startScanner()" [hidden]="scanActive" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+      ESCANEAR CÓDIGO QR
+    </ion-button> -->
+    <ion-button class="pos" size="large" color="danger" (click)="Salir()" >Salir</ion-button>
+    <ion-button class="pos2" size="large" color="success" (click)="presentAlertConfirm()" >Limpiar</ion-button>
+  
+  </ion-content>
+    
+
+

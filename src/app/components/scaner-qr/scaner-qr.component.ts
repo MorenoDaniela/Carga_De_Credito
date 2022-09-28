@@ -3,6 +3,7 @@ import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 import { CreditosService } from 'src/app/shared/services/creditos.service';
 import { map } from 'rxjs/operators';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-scaner-qr',
   templateUrl: './scaner-qr.component.html',
@@ -13,7 +14,7 @@ export class ScanerQrComponent implements OnInit {
   scanActive: boolean = false;
   public misCreditos:any=new Array<any>();
   public miCredito:Credito = new Credito();
-  constructor(public creditosService: CreditosService, public authService:AuthService)
+  constructor(public creditosService: CreditosService, public authService:AuthService,public alertController: AlertController)
   {
 
   }
@@ -93,23 +94,23 @@ export class ScanerQrComponent implements OnInit {
     {
       if (this.miCredito.qrs.includes(qrEscaneado))//ya lo cargo
       {
-        alert("en if qr escaneado" + qrEscaneado);
+        // alert("en if qr escaneado" + qrEscaneado);
         this.authService.presentToast("Ya cargo este código una vez usuario.",2000,'bottom','danger','text-center');
       }else//no lo cargo aun
       {
-        alert("en else qr escaneado" + qrEscaneado);
+        // alert("en else qr escaneado" + qrEscaneado);
         
         if (qrEscaneado=='8c95def646b6127282ed50454b73240300dccabc'){
-          alert("cantidad " + cantidadNuevo +" " +this.miCredito.cantidad);
+          //alert("cantidad " + cantidadNuevo +" " +this.miCredito.cantidad);
           cantidadNuevo=this.miCredito.cantidad+10;
         }
         if (qrEscaneado=='ae338e4e0cbb4e4bcffaf9ce5b409feb8edd5172 '){
-          alert("cantidad " + cantidadNuevo +" " +this.miCredito.cantidad);
+          //alert("cantidad " + cantidadNuevo +" " +this.miCredito.cantidad);
           //cantidadNuevo=this.miCredito.cantidad+50;//no anda el de 50 vaya a saber uno por que
           cantidadNuevo=this.miCredito.cantidad+50;
         }
         if (qrEscaneado=='2786f4877b9091dcad7f35751bfcf5d5ea712b2f'){
-          alert("cantidad " + cantidadNuevo +" " +this.miCredito.cantidad);
+          //alert("cantidad " + cantidadNuevo +" " +this.miCredito.cantidad);
           cantidadNuevo=this.miCredito.cantidad+100;
         }
         var creditosNuevos = this.miCredito.qrs + '/'+qrEscaneado;
@@ -126,10 +127,10 @@ export class ScanerQrComponent implements OnInit {
   YaLoCargo(qrs:string){
 
   var firstIndex = this.miCredito.qrs.indexOf(qrs);
-  alert("INDICE PRIMERO "+firstIndex);
-  alert("LAST INDEX "+this.miCredito.qrs.lastIndexOf(qrs));
+  // alert("INDICE PRIMERO "+firstIndex);
+  // alert("LAST INDEX "+this.miCredito.qrs.lastIndexOf(qrs));
   var result = firstIndex !=  this.miCredito.qrs.lastIndexOf(qrs) && firstIndex != -1;
-  alert("RESULT "+result);
+  // alert("RESULT "+result);
   return result;
 
   }
@@ -178,8 +179,37 @@ export class ScanerQrComponent implements OnInit {
     this.scanActive = false;
   }
 
-  
+  Salir(){
+    this.authService.SignOut();
+  }
+  async presentAlertConfirm() {
+    const alert = await this.alertController.create({
+      cssClass: 'alertCancel',
+      header: '¿Estás seguro?',
+      message: 'Si presionas Si se va a <strong>borrar</strong> tu saldo',
+      buttons: [
+        {
+          text: 'No',
+          role: 'cancel',
+          cssClass: 'secondary',
+          id: 'cancel-button',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Si',
+          id: 'confirm-button',
+          cssClass: 'danger',
+          handler: () => {
+            console.log('Confirm Okay');
+            this.Limpiar();
+          }
+        }
+      ]
+    });
 
+    await alert.present();
+  }
 }
 
 export class Credito{
